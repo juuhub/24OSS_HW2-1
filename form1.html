@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>Checkout form</h1>
+    <p>Below is an example form built entirely with Bootstrap’s form controls. Each required form group has a validation state that can be triggered by attempting to submit the form without completing it.</p>
+  
+  <h2>Billing address</h2>
+  First name<abbr>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;Last name</abbr><br>
+  <input type="text" name="firstname">
+  <input type="text" name="lastname">
+  <br>Username<br>
+  <input type="text" name="name" placeholder="Username" style="width:338px">
+  <br>Email(Optional)<br>
+    <input type="email" name="email" placeholder="you@example.com" style="width:338px">
+    <br>Address<br>
+    <input type="text" name="address" placeholder="1234 Main St" style="width:338px">
+    <br>Address 2(Optional)<br>
+    <input type="text" name="address2" placeholder="Apartment or suite" style="width:338px">
+    <br>Country<abbr>&emsp;&emsp;&emsp;&emsp;&emsp;&ensp;State&emsp;&emsp;&emsp;&emsp;&emsp;Zip</abbr><br>
+    <select name="country" style="width:140px">
+      <option value="none">Choose...</option>
+      <option value="1">United States</option>
+    </select>
+    <select name="state" style="width:110px">
+      <option value="none">Choose...</option>
+      <option value="1">California</option>
+    </select>
+    <input type="text" name="zip" style="width:77px">
+
+    <br><br><input type="checkbox" name="confirm" value="addrsame"/>Shipping address is the same as my billing address<br>
+    <input type="checkbox" name="save" value="saveinfo"/>Save this information for next time
+
+    <h2>Payment</h2>
+    <input type="radio" name="payment" value="creditcard" checked>Credit card<br>
+    <input type="radio" name="payment" value="debitcard">Debit card<br>
+    <input type="radio" name="payment" value="paypal">PayPal<br>
+
+    <br>Name on card<abbr>&emsp;&emsp;&emsp;&emsp;&ensp;Credit card number<br>
+    <input type="text" name="nameoncard">
+    <input type="text" name="cardnumber">
+    <br>Full name as displayed on card<br><br>
+
+    Expiration<abbr>&emsp;&ensp;CVV<br>
+    <input type="text" name="expriation" style="width:80px">
+    <input type="text" name="cvv" style="width:80px">
+    <br><button>Continue to checkout</button>
+
+    <h2>Your cart&emsp;&emsp;&emsp;&emsp;&ensp;3</h2>
+    <table text-align="left" border="1%">
+      <th>Product name&emsp;&emsp;&emsp;&emsp;&emsp;&ensp;$12<br>Brief description</th>
+      <tr>
+        <td>Second product&emsp;&emsp;&emsp;&emsp;&emsp;&ensp;$8<br>Brief description</td>
+      </tr>
+      <tr>
+        <td>Thrid item&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp;&ensp;$5<br>Brief description</td>
+      </tr>
+      <tr>
+        <td>Promo code&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp;&nbsp;-$5<br>EXAMPLECODE</td>
+      </tr>
+      <tr>
+        <td>Total (USD)&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp;&ensp;$20</td>
+      </tr>
+    </table>
+
+    <br><input type="text" name="code" placeholder="Promo code" style="width:155px"><button>Redeem</button>
+
+    <br><br>© 2017–2022 Company Name<br>
+    &emsp;&ensp;<a href="http://127.0.0.1:5500/form.html">Privacy</a>
+    &ensp;<a href="http://127.0.0.1:5500/form.html">Terms</a>
+    &ensp;<a href="http://127.0.0.1:5500/form.html">Support</a>
+</body>
+</html>

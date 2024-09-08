@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .btn1 {
+      background-color: blue;
+      border: white;
+      color: white;
+      height: 25px;
+      width: 50px;
+    }
+
+    .btn2 {
+      background-color: green;
+      border: white;
+      color: white;
+      height: 25px;
+      width: 50px;
+    }
+
+    ul{
+      list-style-type: disc;
+      padding-left: 50px;
+    }
+
+    li{
+      padding: 1px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Dynamic Web page</h1>
+  <input type="text" id="fruit">
+  <input type="button" value="추가" id="addname" class="btn1" onclick='add()'>
+  <input type="button" value="삭제" id="delname" class="btn2" onclick='remove()'>
+
+  <ul id="fList"></ul>
+</body>
+<script>
+  function add(){
+    var string = document.getElementById('fruit').value;
+    const myArray = string.split(",");
+
+    const fList = document.getElementById('fList');
+
+    for(let i = 0; i < myArray.length; i++){
+        let li = document.createElement('li');
+        li.textContent = myArray[i].trim();
+        fList.appendChild(li);
+    }
+
+    document.getElementById('fruit').value = '';
+  }
+
+  function remove(){
+    document.getElementById("fList").innerHTML = '';
+  }
+</script>
+</html>

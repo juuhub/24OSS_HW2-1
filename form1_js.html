@@ -99,6 +99,11 @@
     .error-border {
       border: 2px solid red;
     }
+
+    .valid-font{
+      color: green;
+    }
+
   </style>
 </head>
 <body>
@@ -141,14 +146,14 @@
         <input type="text" name="zip" id="zip" style="width:88px"><span id="zipError" class="error-message"></span>
 
         <hr class="left-hr">
-        <input type="checkbox" name="confirm" value="addrsame"/>Shipping address is the same as my billing address<br>
-        <input type="checkbox" name="save" value="saveinfo"/>Save this information for next time
+        <input type="checkbox" name="confirm" id="check" value="addrsame"/>Shipping address is the same as my billing address<br>
+        <input type="checkbox" name="save" id="check" value="saveinfo"/>Save this information for next time
         <hr class="left-hr">
 
         <h2>Payment</h2>
-        <input type="radio" name="payment" value="creditcard" checked>Credit card<br>
-        <input type="radio" name="payment" value="debitcard">Debit card<br>
-        <input type="radio" name="payment" value="paypal">PayPal<br>
+        <input type="radio" name="payment" id="check" value="creditcard" checked>Credit card<br>
+        <input type="radio" name="payment" id="check" value="debitcard">Debit card<br>
+        <input type="radio" name="payment" id="check" value="paypal">PayPal<br>
 
         <br>Name on card<abbr>&emsp;&emsp;&emsp;&emsp;&ensp;Credit card number<br>
         <input type="text" id="nameoncard" name="nameoncard" style="width:167px"><span id="nameoncardError" class="error-message"></span>
@@ -251,6 +256,8 @@
   document.querySelector('.btn1').addEventListener('click', function(event) {
     validateForm(event);
   });
+
+  document.getElementById('check').classList.add('valid-font');
 </script>
 
 </html>

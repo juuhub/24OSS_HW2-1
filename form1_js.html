@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    h1, h2 {
+      font-weight: 300;
+    }
+
+    body {
+      text-align: center;
+    }
+
+    #pic{
+      height:60px;
+      background-color:white;
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    #des{
+      background-color:white;
+      text-align: center;
+      font-weight: 200;
+      font-size: 1.1em;
+      line-height: 1.5em;
+    }
+
+    div{
+      margin-top: 1px;
+    }
+
+    .content {
+      display: flex;
+      align-items: stretch; /* 상자 높이 맞춤 */
+      justify-content: center; /* 가운데 정렬 */
+      width: 100%;
+    }
+
+    .box1, .box2 {
+      height: 800px;
+      width: 23%;
+      background-color: white;
+    }
+
+    .box1 {
+      text-align: left;
+      padding-right: 0px;
+    }
+
+    .box2 {
+      padding-left: 0%;
+    }
+
+    hr{
+      width: 98%;
+      height: 0px;
+      border: solid;
+      color: lightgrey;
+      text-align: center;
+    }
+
+    .btn1 {
+      background-color: blue;
+      color: white;
+      height: 35px;
+      width: 390px;
+      border-radius: 7px;
+    }
+
+    .btn2 {
+      background-color: grey;
+      color: white;
+      width: 70px;
+      border-radius: 7px;
+    }
+
+    th, td {
+      text-align: left;
+    }
+
+    .foot {
+      margin-top: 240px;
+      background-color: white;
+    }
+
+    .error-message {
+      color: red;
+      font-size: 12px;
+    }
+
+    input, select {
+      margin-bottom: 10px;
+    }
+
+    /* 유효성 검사 실패 시 빨간 테두리 */
+    .error-border {
+      border: 2px solid red;
+    }
+  </style>
+</head>
+<body>
+  <div id="pic"><img src="https://getbootstrap.com/docs/5.2/assets/brand/bootstrap-logo.svg" width="72" height="57">
+  </div>
+
+  <div id="des">
+    <h1>Checkout form</h1>
+    <p>Below is an example form built entirely with Bootstrap’s form controls. Each required form group has a<br>validation state that can be triggered by attempting to submit the form without completing it.</p>
+  </div>
+
+  <div class="content">
+    <div class="box1">
+      <h2>Billing address</h2>
+      <form id="checkoutForm">
+        First name<abbr>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp;Last name</abbr><br>
+        <input type="text" name="firstname" id="firstname" style="width:184px" required><span id="firstNameError" class="error-message"></span>&ensp;<input type="text" name="lastname" id="lastname" style="width:184px" required><span id="lastNameError" class="error-message"></span><br>
+
+        <br>Username<br>
+        <input type="text" name="name" id="username" placeholder="Username" style="width:380px" required><span id="userNameError" class="error-message"></span>
+
+        <br>Email&nbsp;(Optional)<br>
+        <input type="email" name="email" placeholder="you@example.com" style="width:380px">
+
+        <br>Address<br>
+        <input type="text" name="address" id="address" placeholder="1234 Main St" style="width:380px" required><span id="addressError" class="error-message"></span>
+
+        <br>Address 2&nbsp;(Optional)<br>
+        <input type="text" name="address2" placeholder="Apartment or suite" style="width:380px">
+
+        <br>Country<abbr>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp;&ensp;State&emsp;&emsp;&emsp;&emsp;&emsp;&ensp;Zip</abbr><br>
+        <select name="country" id="country" style="width:160px">
+          <option value="none">Choose...</option>
+          <option value="1">United States</option>
+        </select><span id="countryError" class="error-message"></span>
+        <select name="state" id="state" style="width:120px">
+          <option value="none">Choose...</option>
+          <option value="1">California</option>
+        </select><span id="stateError" class="error-message"></span>
+        <input type="text" name="zip" id="zip" style="width:88px"><span id="zipError" class="error-message"></span>
+
+        <hr class="left-hr">
+        <input type="checkbox" name="confirm" value="addrsame"/>Shipping address is the same as my billing address<br>
+        <input type="checkbox" name="save" value="saveinfo"/>Save this information for next time
+        <hr class="left-hr">
+
+        <h2>Payment</h2>
+        <input type="radio" name="payment" value="creditcard" checked>Credit card<br>
+        <input type="radio" name="payment" value="debitcard">Debit card<br>
+        <input type="radio" name="payment" value="paypal">PayPal<br>
+
+        <br>Name on card<abbr>&emsp;&emsp;&emsp;&emsp;&ensp;Credit card number<br>
+        <input type="text" id="nameoncard" name="nameoncard" style="width:167px"><span id="nameoncardError" class="error-message"></span>
+        <input type="text" id="cardnumber" name="cardnumber" style="width:167px"><span id="cardnumberError" class="error-message"></span> 
+        <br>Full name as displayed on card<br><br>
+
+        Expiration<abbr>&emsp;&ensp;CVV<br>
+        <input type="text" name="expiration" id="expiration" style="width:80px"><span id="expError" class="error-message"></span>
+        <input type="text" name="cvv" id="cvv" style="width:80px"><span id="cvvError" class="error-message"></span>
+        <hr class="left-hr">
+
+        <button class="btn1" onclick="validateForm()">Continue to checkout</button>
+      </form>
+    </div>
+
+    <!-- Your Cart -->
+    <div class="box2">
+      <h2 style="color:blue;">Your cart&emsp;&emsp;&emsp;&emsp;&emsp;3</h2>
+      <table style="margin-left: auto; margin-right: auto;" text-align="left">
+        <th style="border: 1px solid black">Product name&emsp;&emsp;&emsp;&emsp;&emsp;&ensp;$12<br>Brief description</th>
+        <tr>
+          <td style="border: 1px solid black">Second product&emsp;&emsp;&emsp;&emsp;&emsp;&ensp;$8<br>Brief description</td>
+        </tr>
+        <tr>
+          <td style="border: 1px solid black">Third item&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp;&ensp;$5<br>Brief description</td>
+        </tr>
+        <tr>
+          <td style="background-color: whitesmoke; color:green; border: 1px solid black">Promo code&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp;&nbsp;-$5<br>EXAMPLECODE</td>
+        </tr>
+        <tr>
+          <td style="border: 1px solid black;">Total (USD)&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp;&ensp;$20</td>
+        </tr>
+      </table>
+      <br><input type="text" name="code" placeholder="Promo code" style="width:155px">
+      <button class="btn2">Redeem</button>
+    </div>
+  </div>
+
+  <div class="foot">
+    <br><br><br>© 2017–2022 Company Name<br>
+    &ensp;<a href="http://127.0.0.1:5500/form.html">Privacy</a>
+    &ensp;<a href="http://127.0.0.1:5500/form.html">Terms</a>
+    &ensp;<a href="http://127.0.0.1:5500/form.html">Support</a>
+  </div>
+</body>
+
+<script>
+  function validateForm(event) {
+    // 폼 기본 제출 동작을 막음
+    event.preventDefault();
+    
+    let isValid = true;
+
+    function setSuccess(inputElement, errorElement) {
+      errorElement.textContent = '';
+      inputElement.classList.remove('error-border');  // 빨간 테두리 제거
+      inputElement.style.border = '2px solid green';  // 초록 테두리 추가
+    }
+
+    // 유효성 검사 실패 시 빨간 테두리를 추가하고, 성공 시 원래 상태로 복구
+    function setError(inputElement, errorElement, errorMessage) {
+      if (inputElement.value === '' || inputElement.value === 'none') {
+        errorElement.textContent = errorMessage;
+        inputElement.classList.add('error-border');  // 빨간 테두리 추가
+        inputElement.style.border = '2px solid red';  // 빨간 테두리 추가
+        isValid = false;
+      } else {
+        setSuccess(inputElement, errorElement);  // 유효성 통과 시 초록색으로 변경
+      }
+    }
+
+    setError(document.getElementById('firstname'), document.getElementById('firstNameError'), 'First name is required.');
+
+    setError(document.getElementById('lastname'), document.getElementById('lastNameError'), 'Last name is required.');
+
+    setError(document.getElementById('username'), document.getElementById('userNameError'), 'Username is required.');
+
+    setError(document.getElementById('address'), document.getElementById('addressError'), 'Address is required.');
+
+    setError(document.getElementById('country'), document.getElementById('countryError'), 'Please select a valid country.');
+
+    setError(document.getElementById('state'), document.getElementById('stateError'), 'Please select a valid state.');
+
+    setError(document.getElementById('zip'), document.getElementById('zipError'), 'ZIP code is required.');
+
+    setError(document.getElementById('nameoncard'), document.getElementById('nameoncardError'), 'Name on card is required');
+
+    setError(document.getElementById('cardnumber'), document.getElementById('cardnumberError'), 'Credit card number is required');
+
+    setError(document.getElementById('expiration'), document.getElementById('expError'), 'Expiration date required');
+
+    setError(document.getElementById('cvv'), document.getElementById('cvvError'), 'Security code required');
+
+    if (isValid) {
+      document.getElementById('checkoutForm').submit();
+    }
+  }
+
+  // 버튼 클릭 시 validateForm 호출, 기본 제출 동작을 막기 위해 이벤트 리스너에서 preventDefault() 사용
+  document.querySelector('.btn1').addEventListener('click', function(event) {
+    validateForm(event);
+  });
+</script>
+
+</html>
